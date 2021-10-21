@@ -16,10 +16,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tvHilt: TextView
     private lateinit var tvHiltViewModel: TextView
 
-    @Inject
-    lateinit var testRepository: TestRepository
-
-
     private val mainViewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,9 +24,6 @@ class MainActivity : AppCompatActivity() {
 
         tvHilt = findViewById(R.id.tvHilt)
         tvHiltViewModel = findViewById(R.id.tvHiltViewModel)
-
-
-
 
         mainViewModel.mainState().observe(this) {
             tvHilt.text = it

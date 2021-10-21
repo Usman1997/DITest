@@ -10,8 +10,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val mainRepository: MainRepository,
-    private val testRepository: TestRepository
+    mainRepository: MainRepository,
+    testRepository: TestRepository
 ) : ViewModel() {
 
     private val coreState = MutableLiveData<String>()
