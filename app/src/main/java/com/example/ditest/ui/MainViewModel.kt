@@ -7,13 +7,17 @@ import com.example.core.di.DaggerWrapper
 import com.example.core.repository.StringRepository
 import com.example.core.repository.TestRepository
 import com.example.ditest.domain.MainRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-
-class MainViewModel(
-    private val mainRepository: MainRepository
+@HiltViewModel
+class MainViewModel @Inject constructor(
+    private val mainRepository: MainRepository,
+    private val stringRepository: StringRepository
 ) : ViewModel() {
 
-    private val stringRepository: StringRepository = DaggerWrapper.getComponent().getStringRepository()
+//    private val stringRepository: StringRepository =
+//        DaggerWrapper.getComponent().getStringRepository()
 
     private val state = MutableLiveData<String>()
 
