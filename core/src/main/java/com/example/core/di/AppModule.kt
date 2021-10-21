@@ -1,4 +1,4 @@
-package com.example.core
+package com.example.core.di
 
 import com.example.core.repository.TestRepository
 import com.example.core.repository.TestRepositoryImpl
@@ -10,13 +10,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class Module {
-
-    @Provides
-    @Singleton
-    fun provideStringRepository(): StringRepository {
-        return StringRepository()
-    }
+class AppModule {
 
     @Provides
     @Singleton

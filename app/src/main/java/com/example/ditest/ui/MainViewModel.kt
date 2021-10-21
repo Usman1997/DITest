@@ -8,16 +8,20 @@ import com.example.ditest.domain.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
-
-class MainViewModel(
-    private val mainRepository: MainRepository
+@HiltViewModel
+class MainViewModel @Inject constructor(
+    private val mainRepository: MainRepository,
+    private val testRepository: TestRepository
 ) : ViewModel() {
 
-    private val state = MutableLiveData<String>()
+    private val coreState = MutableLiveData<String>()
+    private val mainState = MutableLiveData<String>()
 
     init {
-        state.value = mainRepository.getValueFromCoreModule()
+        coreState.value = testRepository.getValue()
+        mainState.value = mainRepository.getValue()
     }
 
-    fun state(): LiveData<String> = state
+    fun coreState(): LiveData<String> = coreState
+    fun mainState(): LiveData<String> = mainState
 }

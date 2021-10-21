@@ -5,11 +5,11 @@ import javax.inject.Inject
 
 
 interface MainRepository {
-    fun getValueFromCoreModule(): String
+    fun getValue(): String
 }
 
 class MainRepositoryImpl() : MainRepository {
-    override fun getValueFromCoreModule(): String {
+    override fun getValue(): String {
         return "Hello From Hilt Repository"
     }
 
