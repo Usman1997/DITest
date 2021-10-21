@@ -10,7 +10,7 @@ interface MainRepository {
 
 class MainRepositoryImpl() : MainRepository {
     override fun getValueFromCoreModule(): String {
-        return "Hello From Hilt Repository"
+        return "Hello From Kodin Repository"
     }
 
 }
