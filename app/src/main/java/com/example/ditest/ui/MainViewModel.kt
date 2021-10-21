@@ -15,6 +15,7 @@ class MainViewModel(
 
     private val state = MutableLiveData<String>()
 
+
     init {
         state.value = mainRepository.getValueFromCoreModule()
     }

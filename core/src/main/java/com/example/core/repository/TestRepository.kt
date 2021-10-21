@@ -9,10 +9,8 @@ interface TestRepository {
 }
 
 class TestRepositoryImpl(): TestRepository{
-    @Inject
-    lateinit var testRepository: TestRepository
     override fun getValue(): String {
-        return testRepository.getValue()
+        return "Hello from core Hilt Repository"
     }
 
 }

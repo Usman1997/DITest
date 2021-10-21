@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity(), KodeinAware {
         val debug: String by kodein.instance(tag = "kodein")
 
         tvKodein.text = debug
-        tvHilt.text = stringRepository.getValue()
+        tvHilt.text = testRepository.getValue()
 
         mainViewModel.state().observe(this){
             tvHiltViewModel.text = it
