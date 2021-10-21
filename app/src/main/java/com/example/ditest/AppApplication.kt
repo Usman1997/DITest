@@ -1,20 +1,20 @@
 package com.example.ditest
 
 import android.app.Application
-import com.example.ditest.di.constantsModule
-import com.example.ditest.di.repositoryModule
-import com.example.ditest.di.rootModule
-import com.example.ditest.di.viewModelModule
-import org.kodein.di.Kodein
-import org.kodein.di.KodeinAware
+import com.example.core.di.DaggerWrapper
+import com.example.ditest.di.DaggerRootComponent
+import com.example.ditest.di.RootComponent
+import com.example.ditest.di.RootModule
 
-class AppApplication : Application(), KodeinAware {
 
-    override val kodein: Kodein = Kodein.lazy {
-        import(viewModelModule)
-        import(repositoryModule)
-        import(constantsModule)
-        import(rootModule((this@AppApplication)))
+class AppApplication : Application() {
+    lateinit var rootComponent: RootComponent
+
+    override fun onCreate() {
+        super.onCreate()
+        rootComponent = DaggerRootComponent.builder()
+            .rootModule(RootModule(DaggerWrapper.getComponent().getTestRepository()))
+            .build()
     }
 
 }

@@ -8,9 +8,9 @@ interface MainRepository {
     fun getValueFromCoreModule(): String
 }
 
-class MainRepositoryImpl() : MainRepository {
+class MainRepositoryImpl @Inject constructor(private val testRepository: TestRepository) : MainRepository {
     override fun getValueFromCoreModule(): String {
-        return "Hello From Kodin Repository"
+        return testRepository.getValue()
     }
 
 }
