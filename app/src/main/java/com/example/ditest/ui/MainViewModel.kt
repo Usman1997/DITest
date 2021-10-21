@@ -12,12 +12,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val mainRepository: MainRepository,
-    private val stringRepository: StringRepository
+    private val mainRepository: MainRepository
 ) : ViewModel() {
 
-//    private val stringRepository: StringRepository =
-//        DaggerWrapper.getComponent().getStringRepository()
+    private val stringRepository: StringRepository =
+        DaggerWrapper.getComponent().getStringRepository()
 
     private val state = MutableLiveData<String>()
 
